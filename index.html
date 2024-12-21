@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытие контакта</title>
+    <script>
+        function redirect() {
+            var userAgent = navigator.userAgent + navigator.vendor + window.opera;
+
+            try {
+                // Проверяем, используется ли устройство iPhone/iPad/iPod
+                if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                    // Перенаправление для iPhone
+                    window.location.href = "https://drive.google.com/uc?export=download&id=11u_k6rbZM0OIMWyhKxjGUK38unWC14Wo";
+                } 
+                // Проверяем, используется ли Android
+                else if (/Android/i.test(userAgent)) {
+                    // Перенаправление для Android
+                    window.location.href = "https://drive.google.com/uc?export=download&id=1K8W7DbT7Y7Fc-7NRJ5kYqc-a47Rc0txa";
+                } 
+                // Для других устройств
+                else {
+                    document.body.innerHTML = `
+                        <p>Ваше устройство не распознано. Вы можете скачать контакт вручную:</p>
+                        <ul>
+                            <li><a href="https://drive.google.com/uc?export=download&id=11u_k6rbZM0OIMWyhKxjGUK38unWC14Wo">Скачать для iPhone</a></li>
+                            <li><a href="https://drive.google.com/uc?export=download&id=1K8W7DbT7Y7Fc-7NRJ5kYqc-a47Rc0txa">Скачать для Android</a></li>
+                        </ul>
+                    `;
+                }
+            } catch (error) {
+                console.error("Ошибка перенаправления:", error);
+                document.body.innerHTML = `
+                    <p>Произошла ошибка. Пожалуйста, используйте ссылки для ручного скачивания:</p>
+                    <ul>
+                        <li><a href="https://drive.google.com/uc?export=download&id=11u_k6rbZM0OIMWyhKxjGUK38unWC14Wo">Скачать для iPhone</a></li>
+                        <li><a href="https://drive.google.com/uc?export=download&id=1K8W7DbT7Y7Fc-7NRJ5kYqc-a47Rc0txa">Скачать для Android</a></li>
+                    </ul>
+                `;
+            }
+        }
+    </script>
+</head>
+<body onload="redirect()">
+    <noscript>
+        <p>Для перенаправления включите JavaScript. Вы можете скачать файл вручную:</p>
+        <ul>
+            <li><a href="https://drive.google.com/uc?export=download&id=11u_k6rbZM0OIMWyhKxjGUK38unWC14Wo">Скачать для iPhone</a></li>
+            <li><a href="https://drive.google.com/uc?export=download&id=1K8W7DbT7Y7Fc-7NRJ5kYqc-a47Rc0txa">Скачать для Android</a></li>
+        </ul>
+    </noscript>
+</body>
+</html>
